@@ -81,8 +81,8 @@ Example:
 
 ```json
 {
-    "Dashboard": "Ikhtisar",
-    "User Account": "Akun Pengguna"
+    "Dashboard": "Dashboard",
+    "User Account": "User Account"
 }
 ```
 
