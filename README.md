@@ -85,12 +85,7 @@ Example:
     "User Account": "User Account"
 }
 ```
-
----
-
-## Best Practices
-
-It’s recommended to commit the generated JSON files to version control. This helps keep your translation keys in sync across teams, environments, and CI pipelines.
+You can use AI to change the value of the result generator
 
 ---
 
