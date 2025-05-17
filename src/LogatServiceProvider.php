@@ -2,6 +2,7 @@
 
 namespace Hexters\Logat;
 
+use Hexters\Logat\Commands\LangCleanCommand;
 use Illuminate\Support\ServiceProvider;
 use Hexters\Logat\Commands\LangGeneratorCommand;
 
@@ -37,7 +38,8 @@ class LogatServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                LangGeneratorCommand::class
+                LangGeneratorCommand::class,
+                LangCleanCommand::class,
             ]);
         }
     }

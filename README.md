@@ -61,6 +61,18 @@ This command will:
 * Merge with any existing translation files
 * Save the output in the `lang` directory as individual JSON files for each language
 
+To remove unused keys that no longer exist in your source code, run:
+
+```bash
+php artisan logat:clean
+```
+
+This command will:
+
+* Scan your application for active translation keys
+* Remove outdated keys from each language file
+* Keep your JSON files clean and relevant
+
 ---
 
 ## Output
@@ -85,6 +97,7 @@ Example:
     "User Account": "User Account"
 }
 ```
+
 You can use AI to change the value of the result generator
 
 ---
