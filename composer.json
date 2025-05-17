@@ -1,0 +1,37 @@
+{
+    "name": "hexters/logat",
+    "description": "Extract locale keys from source code in seconds.",
+    "keywords": [
+        "laravel",
+        "translation",
+        "language",
+        "i18n",
+        "localization",
+        "language extractor",
+        "translation keys",
+        "json translations",
+        "laravel translation",
+        "laravel i18n",
+        "logat"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hexters\\Logat\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Asep",
+            "email": "hexters@gmail.com"
+        }
+    ],
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hexters\\Logat\\LogatServiceProvider"
+            ]
+        }
+    }
+}
