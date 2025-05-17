@@ -27,13 +27,13 @@ class LangGeneratorCommand extends Command
     public function handle()
     {
         // Initialize data structure for all supported languages
-        $languages = config('logat.locales');
+        $languages = config('logat.locales', ['app']);
         $translations = [];
         $existingKeys = [];
 
         // Collect all PHP files from configured source paths
         $files = collect([]);
-        foreach (config('logat.sources', []) as $path) {
+        foreach (config('logat.sources', ['en']) as $path) {
             $files = $files->merge(File::allFiles(base_path($path)));
         }
 
@@ -49,7 +49,7 @@ class LangGeneratorCommand extends Command
                 $existingKeys[$key] = true;
                 if (! isset($translations[$key])) {
                     $translations[$key] = [
-                        config('logat.default') => $key
+                        config('logat.default', 'en') => $key
                     ];
                 }
             }
