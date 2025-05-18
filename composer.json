@@ -28,10 +28,14 @@
     ],
     "require": {},
     "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        },
         "laravel": {
             "providers": [
                 "Hexters\\Logat\\LogatServiceProvider"
             ]
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
