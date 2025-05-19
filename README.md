@@ -8,13 +8,39 @@ Designed to simplify your localization workflow, especially when managing multi-
 
 ## Installation
 
-Install via Composer:
+Before installing, add the Logat private repository to your `composer.json`:
+
+```bash
+composer config repositories.logat.hexters.com \
+    '{"type": "composer", "url": "https://logat.hexters.com"}' \
+    --file composer.json
+```
+
+Then install the package using:
 
 ```bash
 composer require hexters/logat --dev
 ```
 
-This package is meant for development use only and should not be required in production environments.
+During installation, you will be prompted to enter your license credentials:
+
+```
+Authentication required (logat.hexters.com):
+    Username: 872620646
+    Password: cf3c8208-7537-451f-9aad-f93771c6b2f6
+```
+
+If successful, you’ll see a message like this:
+
+```
+Info: Hi Asep, thank you for using Logat.
+./composer.json has been updated
+Running composer update hexters/logat
+  - Installing hexters/logat (1.0.0): Extracting archive
+Generating optimized autoload files
+```
+
+> This package is meant for development use only and should not be required in production environments.
 
 ---
 
@@ -104,4 +130,7 @@ You can use AI to change the value of the result generator
 
 ## License
 
-This package is open source and licensed under the [MIT License](LICENSE).
+This package is licensed under the [MIT License](LICENSE).
+
+You can obtain a **free license key** to use this package from:
+[https://hexters.com/product/logat](https://hexters.com/product/logat)
