@@ -14,24 +14,6 @@ Install the package using:
 composer require hexters/logat --dev
 ```
 
-During installation, you will be prompted to enter your license credentials:
-
-```
-Authentication required (logat.hexters.com):
-    Username: 872620646
-    Password: cf3c8208-7537-451f-9aad-f93771c6b2f6
-```
-
-If successful, you’ll see a message like this:
-
-```
-Info: Hi Asep, thank you for using Logat.
-./composer.json has been updated
-Running composer update hexters/logat
-  - Installing hexters/logat (1.0.0): Extracting archive
-Generating optimized autoload files
-```
-
 > This package is meant for development use only and should not be required in production environments.
 
 ---
