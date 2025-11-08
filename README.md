@@ -131,6 +131,3 @@ You can use AI to change the value of the result generator
 ## License
 
 This package is licensed under the [MIT License](LICENSE).
-
-You can obtain a **free license key** to use this package from:
-[https://hexters.com/product/logat](https://hexters.com/product/logat)
