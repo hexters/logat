@@ -8,15 +8,7 @@ Designed to simplify your localization workflow, especially when managing multi-
 
 ## Installation
 
-Before installing, add the Logat private repository to your `composer.json`:
-
-```bash
-composer config repositories.logat.hexters.com \
-    '{"type": "composer", "url": "https://logat.hexters.com"}' \
-        --file composer.json
-```
-
-Then install the package using:
+Install the package using:
 
 ```bash
 composer require hexters/logat --dev
