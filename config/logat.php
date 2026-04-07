@@ -43,4 +43,16 @@ return [
         'app',
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | logat.functions
+    |--------------------------------------------------------------------------
+    |
+    | Define the translation functions that should be scanned
+    | when collecting language keys from your source files. Each entry is
+    | matched as a translation call pattern, such as __('...') or @lang('...').
+    |
+    */
+
+    'functions' => ['__', 'trans', '@lang'],
 ];

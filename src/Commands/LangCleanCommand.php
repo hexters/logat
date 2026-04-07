@@ -24,13 +24,15 @@ class LangCleanCommand extends Command
             $files = $files->merge(File::allFiles(base_path($path)));
         }
 
-        $pattern = "/__\(['\"]([^'\"]+)['\"]/";
-
-        $files->each(function ($file) use ($pattern, &$existingKeys) {
+        $files->each(function ($file) use (&$existingKeys) {
             $content = File::get($file->getPathname());
-            preg_match_all($pattern, $content, $matches);
-            foreach ($matches[1] as $key) {
-                $existingKeys[$key] = true;
+            foreach(config('logat.functions', ['__']) as $function) {
+                $pattern = "/{$function}\(['\"]([^'\"]+)['\"]/";
+                preg_match_all($pattern, $content, $matches);
+                
+                foreach ($matches[1] as $key) {
+                    $existingKeys[$key] = true;
+                }
             }
         });
 
