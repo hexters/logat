@@ -48,11 +48,12 @@ return [
     | logat.functions
     |--------------------------------------------------------------------------
     |
-    | Define the translation functions that should be scanned
-    | when collecting language keys from your source files. Each entry is
-    | matched as a translation call pattern, such as __('...') or @lang('...').
+    | Define the functions that should be scanned when collecting translation keys
+    | from your source files. Each entry is matched as a translation call pattern.
     |
     */
 
     'functions' => ['__', 'trans', '@lang'],
+
+    'sorting' => true,
 ];

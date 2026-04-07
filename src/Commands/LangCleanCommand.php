@@ -53,6 +53,8 @@ class LangCleanCommand extends Command
                 return isset($existingKeys[$key]);
             })->all();
 
+            ! config('logat.sorting') ?: ksort($cleaned, SORT_NATURAL | SORT_FLAG_CASE);
+
             File::put($langFilePath, json_encode($cleaned, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
             $this->info("Cleaned: $langFilePath (" . count($cleaned) . " keys)");
         }

@@ -85,6 +85,8 @@ class LangGeneratorCommand extends Command
                 }
             }
 
+            ! config('logat.sorting') ?: ksort($mergedTranslations, SORT_NATURAL | SORT_FLAG_CASE);
+
             // Save final merged translations to JSON file
             File::put($langFilePath, json_encode($mergedTranslations, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
         }
