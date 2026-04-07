@@ -40,6 +40,8 @@ return [
         'app',
     ],
 
+    'functions' => ['__', 'trans', '@lang'],
+
 ];
 ```
 
