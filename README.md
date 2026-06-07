@@ -1,6 +1,6 @@
 # Logat — Laravel Language Extractor
 
-**Logat** is a Laravel package that helps you extract all translation keys from your application’s source code into JSON language files. It scans your Blade and PHP files for `__('...')` calls and compiles the results automatically.
+**Logat** is a Laravel package that helps you extract all translation keys from your application’s source code into JSON language files. It scans your Blade and PHP files for translation function calls and compiles the results automatically.
 
 Designed to simplify your localization workflow, especially when managing multi-language projects.
 
@@ -40,10 +40,13 @@ return [
         'app',
     ],
 
+    'functions' => ['__', 'trans', '@lang'],
+
+    'sorting' => true,
 ];
 ```
 
-You can adjust the default locale, supported languages, and which folders to scan for translation keys.
+You can adjust the default locale, supported languages, sorting, and which folders to scan for translation keys.
 
 ---
 
@@ -57,9 +60,10 @@ php artisan logat:collect
 
 This command will:
 
-* Search for all `__('...')` keys in the specified source directories
+* Search for all translation keys in the specified source directories
 * Merge with any existing translation files
 * Save the output in the `lang` directory as individual JSON files for each language
+* Running this command again will append any newly discovered keys to the existing JSON files
 
 To remove unused keys that no longer exist in your source code, run:
 
@@ -70,7 +74,7 @@ php artisan logat:clean
 This command will:
 
 * Scan your application for active translation keys
-* Remove outdated keys from each language file
+* Remove missing keys from each language file
 * Keep your JSON files clean and relevant
 
 ---

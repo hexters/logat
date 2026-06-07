@@ -37,20 +37,21 @@ class LangGeneratorCommand extends Command
             $files = $files->merge(File::allFiles(base_path($path)));
         }
 
-        $pattern = "/__\(['\"]([^'\"]+)['\"]/";
-
         // Process each file and find all translation key matches
-        $files->each(function ($file) use ($pattern, &$translations, &$existingKeys) {
+        $files->each(function ($file) use (&$translations, &$existingKeys) {
             $content = File::get($file->getPathname());
-            preg_match_all($pattern, $content, $matches);
+            foreach(config('logat.functions', ['__']) as $function) {
+                $pattern = "/{$function}\(['\"]([^'\"]+)['\"]/";
+                preg_match_all($pattern, $content, $matches);
 
-            // Add matched strings to the translations array
-            foreach ($matches[1] as $key) {
-                $existingKeys[$key] = true;
-                if (! isset($translations[$key])) {
-                    $translations[$key] = [
-                        config('logat.default', 'en') => $key
-                    ];
+                // Add matched strings to the translations array
+                foreach ($matches[1] as $key) {
+                    $existingKeys[$key] = true;
+                    if (! isset($translations[$key])) {
+                        $translations[$key] = [
+                            config('logat.default', 'en') => $key
+                        ];
+                    }
                 }
             }
         });
@@ -83,6 +84,8 @@ class LangGeneratorCommand extends Command
                     $mergedTranslations[$key] = $data[$lang] ?? '';
                 }
             }
+
+            ! config('logat.sorting') ?: ksort($mergedTranslations, SORT_NATURAL | SORT_FLAG_CASE);
 
             // Save final merged translations to JSON file
             File::put($langFilePath, json_encode($mergedTranslations, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
